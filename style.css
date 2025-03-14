@@ -1,0 +1,90 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url('assets/lauren-mancke.jpg');
+    background-size: cover;
+}
+
+#root{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 1);
+    animation: root-anim 1s ease-out forwards;
+}
+
+header{
+    background-color: rgb(70, 70, 255);
+    border-bottom: solid 5px rgb(39, 39, 158);
+    box-shadow: 5px 0px 5px black;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    padding: 1rem 2rem;
+    flex: 0 0 auto;
+    opacity: 0;
+    animation: appear-anim 1s ease-out forwards 1s;
+}
+
+.flex-container{
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-box{
+    background-color: white;
+    width: fit-content;
+    border: solid 5px rgb(255, 11, 11);
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px black;
+    padding: 1rem;
+    text-align: center;
+    line-height: 1.5rem;
+    opacity: 0;
+    animation: sliding-appear-anim 1s ease-out forwards 2s;
+}
+
+form{
+    margin: 15px 0px;
+}
+
+button{
+    background-color: rgb(70, 70, 255);
+    border-radius: 10px;
+    padding: 0.5rem;
+    color: white;
+    font-weight: bolder;
+}
+
+label{
+    display: block;
+    text-align: left;
+}
+
+@keyframes root-anim{
+    to{
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+}
+
+@keyframes appear-anim{
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes sliding-appear-anim {
+    from{
+        translate: 0px 30px;
+    }
+    to{
+        opacity: 1;
+        translate: 0px 0px;
+    }
+}
