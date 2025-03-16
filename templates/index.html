@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <title>Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.1" />
-        <link rel="stylesheet" type="text/css" href='style.css' />
+        <link rel="stylesheet" type="text/css" href='/static/style.css' />
     </head>
     <body>
         <div id="root">
@@ -15,9 +15,9 @@
                 <div id="login-box">
                     <h2>Login</h2>
                     <hr />
-                    <form>
-                        <label for="email">Email :</label>
-                        <input type="email" name="email" id="email" /><br /><br />
+                    <form action="m/login" method="POST">
+                        <label for="username">Username :</label>
+                        <input type="username" name="username" id="username" /><br /><br />
                         <label for="password">Password :</label>
                         <input type="password" name="password" id="password" /><br /><br />
                         <button type="submit">Login</button>
