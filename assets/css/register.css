@@ -1,0 +1,60 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(../lauren-mancke.jpg);
+    background-size: cover;
+}
+
+#root{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+header{
+    background-color: rgb(70, 70, 255);
+    border-bottom: solid 5px rgb(39, 39, 158);
+    box-shadow: 5px 0px 5px black;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    padding: 1rem 2rem;
+}
+
+.flex-container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#register-box{
+    width: min-content;
+    padding: 1rem 2rem;
+    background-color: white;
+    border: solid 5px rgb(70, 70, 255);
+    border-radius: 10px;
+}
+
+fieldset{
+    display: flex;
+    flex-flow: column wrap;
+    border: none;
+}
+
+fieldset button{
+    align-self: center;
+    margin: 1rem;
+    background-color: rgb(70, 70, 255);
+    color: white;
+    padding: 0.25rem;
+}
+
+input{
+    padding: 0.2rem;
+}
