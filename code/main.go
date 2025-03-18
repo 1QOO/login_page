@@ -3,40 +3,21 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"text/template"
 )
 
 func main() {
-	http.HandleFunc("/", LoginPage)
-	http.HandleFunc("/login", LoginPage)
-	http.HandleFunc("/welcome", WelcomePage)
+	http.HandleFunc("/", login)
+	http.HandleFunc("/login", login)
+	http.HandleFunc("/register", register)
+	http.HandleFunc("/welcome", welcome)
 
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("../assets"))))
 
-	fmt.Println("Server started on http://localhost:8080")
+	fmt.Println("Server runs at port 8080.")
 	http.ListenAndServe(":8080", nil)
 }
 
-func SignupPage(w http.ResponseWriter, r *http.Request) {
-	if r.Method == http.MethodPost {
-		username := r.FormValue("username")
-		password := r.FormValue("password")
-
-		fmt.Printf("New user signup: Username - %s, password - %s\n", username, password)
-
-		http.Redirect(w, r, "/welcome", http.StatusSeeOther)
-		return
-	}
-
-	tmpl, err := template.ParseFiles("templates/signup.html")
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-	tmpl.Execute(w, nil)
-}
-
-func LoginPage(w http.ResponseWriter, r *http.Request) {
+func login(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost {
 		username := r.FormValue("username")
 		password := r.FormValue("password")
@@ -45,18 +26,15 @@ func LoginPage(w http.ResponseWriter, r *http.Request) {
 			http.Redirect(w, r, "/welcome", http.StatusSeeOther)
 			return
 		}
+	}
 
-		fmt.Fprintf(w, "Invalid credentials. Please try again.")
-		return
-	}
-	tmpl, err := template.ParseFiles("templates/index.html")
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-	tmpl.Execute(w, nil)
+	http.ServeFile(w, r, "../index.html")
 }
 
-func WelcomePage(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome, you have successfully logged in!.")
+func register(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "../static/register.html")
+}
+
+func welcome(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "../static/welcome.html")
 }
