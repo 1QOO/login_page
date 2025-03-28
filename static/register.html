@@ -5,6 +5,7 @@
         <title>Register</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" type="text/css" href="../assets/css/register.css" />
+        <script type="text/javascript" src="../assets/script/register.js"></script>
     </head>
     <body>
         <div id="root">
@@ -15,26 +16,20 @@
                 <div id="register-box">
                     <h1>Register</h1>
                     <hr />
-                    <form action="/signup" method="POST">
+                    <form id="signup-form">
                         <fieldset>
                             <br />
-                            <label for="fname">First name :</label>
-                            <input type="text" name="fname" id="fname" required />
+                            <label for="username">Username :</label>
+                            <span id="username-message"></span>
+                            <input type="text" name="username" id="username" required />
                             <br />
-                            <label for="lname">Last name :</label>
-                            <input type="text" name="lname" id="lname" />
+                            <input type="text" name="session-token" id="session-token" disabled hidden />
+                            <label for="password">Password :</label>
+                            <span id="password-message"></span>
+                            <input type="password" name="password" id="password" required />
                             <br />
-                            <label for="email">Email :</label>
-                            <input type="email" name="email" id="email" required />
-                            <br />
-                            <label for="phone">Phone :</label>
-                            <input type="tel" name="phone" id="phone" required />
-                            <br />
-                            <label for="passwd">Password :</label>
-                            <input type="password" name="passwd" id="passwd" required />
-                            <br />
-                            <label for="confirm-passwd">Confirm password :</label>
-                            <input type="password" name="confirm-passwd" id="confirm-passwd" required />
+                            <label for="confirmed-password">Confirm password :</label>
+                            <input type="password" name="confirmed-password" id="confirmed-password" required />
                             <button type="submit">Signup</button>
                         </fieldset>
                     </form>

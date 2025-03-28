@@ -58,3 +58,8 @@ fieldset button{
 input{
     padding: 0.2rem;
 }
+
+#username-message, #password-message{
+    display: block;
+    color: red;
+}
